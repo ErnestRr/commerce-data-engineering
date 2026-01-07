@@ -37,14 +37,10 @@ El diseño del modelo se creo utilizando una tabla de hechos de ventas y dimensi
 * **Power Query (M):** Motores de transformación para la limpieza de datos.
 * **n8n / Python:** Automatización de orquestación externa.
 
-## 📂 Estructura del Proyecto
-```text
-├── PBIs/
-│   └── Ecomm_Profitability_Model.pbix   # Archivo fuente de Power BI
-├── Transformaciones/
-│   └── silver_layer_cleaning.m          # Scripts de limpieza en M
-├── img/                                # Capturas de pantalla y diagramas
-└── README.md                           # Documentación técnica
+<img width="1491" height="827" alt="image" src="https://github.com/user-attachments/assets/2297200e-4cac-4d55-bca6-d046c2e2beab" />
+<img width="1508" height="822" alt="image" src="https://github.com/user-attachments/assets/f4dc5cc5-4e79-4b4d-bf64-17aeef9bc9aa" />
+<img width="1493" height="841" alt="image" src="https://github.com/user-attachments/assets/0474aa6d-a7fe-4c5d-a14f-b5e88bf9be4a" />
+
 
 
 
