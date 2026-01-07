@@ -1,14 +1,14 @@
-# 📈 E-commerce Profitability & Data Engineering: Microsoft Fabric Architecture
+# E-commerce Profitability & Data Engineering: Microsoft Fabric Architecture
 
 Este proyecto implementa una solución de **Ingeniería de Datos de extremo a extremo** utilizando **Microsoft Fabric**. El objetivo principal es transformar datos transaccionales ruidosos en una arquitectura de **Lakehouse** optimizada para el cálculo de la rentabilidad real (Net Profit) y la eficiencia operativa mediante un enfoque de **Arquitectura Medallion**.
 
-## 🎯 El Problema de Negocio (Business Case)
+##  El Problema de Negocio (Business Case)
 Las organizaciones de E-commerce suelen operar con una visión parcial de su salud financiera debido a:
 * **Datos Fragmentados:** Información dispersa entre diversas plataformas de venta, ERPs y operadores logísticos.
 * **Inconsistencia de Tipos:** Datos numéricos que ingresan como texto (`String`), bloqueando cualquier análisis de agregación.
 * **Costos Ocultos:** Incapacidad de integrar devoluciones, comisiones de pasarelas y gastos de última milla en el cálculo del margen bruto y neto.
 
-## 🏗️ Arquitectura de Datos (Modern ELT)
+##  Arquitectura de Datos (Modern ELT)
 A diferencia del ETL tradicional, se ha implementado un flujo **ELT** (Extract, Load, Transform) aprovechando el poder de procesamiento de **Microsoft Fabric** y el almacenamiento unificado en **OneLake**.
 
 <img width="1904" height="899" alt="image" src="https://github.com/user-attachments/assets/22b43c7a-f93e-49fd-b31a-cd59e7f535be" />
@@ -22,14 +22,14 @@ A diferencia del ETL tradicional, se ha implementado un flujo **ELT** (Extract, 
     * Normalización de esquemas y eliminación de duplicados.
 3.  **Capa Gold (Curated):** Creación de un **Modelo en Estrella (Star Schema)**. Los datos se sirven mediante **Direct Lake**, permitiendo que Power BI consulte archivos Parquet en OneLake sin necesidad de importar datos, garantizando latencia mínima.
 
-## 📉 Modelo de Datos Optimizado
+##  Modelo de Datos Optimizado
 El diseño del modelo se creó utilizando una tabla de hechos de ventas y dimensiones de producto, tiempo, geografía y canales.
 
 <img width="1893" height="862" alt="image" src="https://github.com/user-attachments/assets/427ef38f-2693-4fab-839a-964ebd3fb882" />
 
 > **Solución de Ingeniería:** Durante la transformación en la capa **Silver**, se implementó un script que utiliza funciones de reemplazo para caracteres no numéricos y un re-tipado forzado al esquema de datos. Esto aseguró que el motor de Power BI pudiera ejecutar medidas DAX de inteligencia de tiempo y cálculos de margen sin errores de compatibilidad.
 
-## 💡 Estrategia de Consumo y Optimización de Costos
+##  Estrategia de Consumo y Optimización de Costos
 Para maximizar la eficiencia operativa y reducir costos de licenciamiento, el flujo de trabajo se diseñó de la siguiente manera:
 * **Modelo Semántico Centralizado:** Se publica el modelo optimizado en el servicio de Fabric.
 * **Consumo Local (Power BI Desktop):** Se utiliza la "maquinita" local para conectarse al **Modelo Semántico de Power BI** mediante Live Connection. Esto permite diseñar reportes avanzados sin requerir el procesamiento de la nube para cada cambio visual, optimizando el uso de capacidades Premium/Fabric y facilitando el desarrollo a usuarios con licencias limitadas.
@@ -61,4 +61,4 @@ Este tipo de canalización de datos (Modern ELT) es ideal para organizaciones qu
 * **Requieren un proceso de ingesta automatizado** que detecte y limpie errores de tipado de forma automática.
 
 ---
-**Desarrollado por Ernesto Roldán** *BI Consultant & Data Engineer Specialist*
+**Desarrollado por Ernesto Roldán** 
