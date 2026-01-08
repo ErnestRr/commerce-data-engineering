@@ -1,4 +1,4 @@
-# E-commerce Profitability & Data Engineering: Microsoft Fabric Architecture
+# 📈 E-commerce Profitability & Data Engineering: Microsoft Fabric Architecture
 
 Este proyecto **implementó** una solución de **BI end to end** utilizando **Microsoft Fabric**. El objetivo principal fue transformar datos transaccionales dispersos —alojados en **Supabase (PostgreSQL)**— en una arquitectura de **Lakehouse** optimizada para el cálculo de la eficiencia operativa mediante un enfoque de **Arquitectura Medallion**.
 
@@ -21,6 +21,11 @@ A diferencia del ETL tradicional, se **desarrolló** un flujo **ELT** (Extract, 
         * Se normalizaron esquemas y se eliminaron registros duplicados.
 3.  **Capa Gold (Notebook %%sql):** Se **creó** un **Modelo en Estrella (Star Schema)** utilizando Notebooks con **Spark SQL**. Los datos se sirvieron mediante **Direct Lake**, permitiendo que Power BI consumiera los archivos Parquet en OneLake sin necesidad de importar datos, garantizando latencia mínima.
 
+## Orquestación y Automatización (Data Factory)
+Para garantizar la actualización constante de los datos, se **configuró** un **Data Factory Pipeline** que actúa como orquestador central, automatizando la ingesta desde Supabase y la ejecución secuencial de los Notebooks de transformación.
+
+
+
 ## Modelo de Datos Optimizado
 El diseño del modelo se **estructuró** utilizando una tabla de hechos  y dimensiones.
 
@@ -35,7 +40,7 @@ Para maximizar la eficiencia operativa y reducir costos de licenciamiento, el fl
 
 ## Tecnologías Utilizadas
 * **Supabase:** Tablas transaccionales (PostgreSQL).
-* **Microsoft Fabric:** Orquestación, Lakehouse y Gobernanza.
+* **Microsoft Fabric:** Orquestación (Data Factory Pipelines), Lakehouse y Gobernanza.
 * **Spark SQL (%%sql):** Procesamiento y modelado de la capa Gold.
 * **OneLake:** Almacenamiento en formato **Delta / Parquet**.
 * **Power BI & DAX:** Modelado semántico y visualización de KPIs.
@@ -57,6 +62,7 @@ Este tipo de canalización de datos (Modern ELT) es ideal para organizaciones qu
 * **Necesitan realizar análisis de rentabilidad complejos** sobre datos históricos y actuales en tiempo real.
 * **Buscan una "fuente única de verdad"** para eliminar las discrepancias entre los reportes de finanzas, ventas y logística.
 * **Quieren desacoplar las cargas de trabajo analíticas** de sus sistemas transaccionales para no afectar el rendimiento de la operación.
+* **Desean optimizar costos de licencia**, centralizando el modelo en Fabric y consumiéndolo localmente para el diseño de reportes.
 * **Negocios que requieren migrar de la versión anterior (Power BI Service)** hacia la capacidad y potencia analítica de **Microsoft Fabric**.
 
 ---
