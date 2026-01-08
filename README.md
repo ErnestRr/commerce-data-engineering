@@ -11,9 +11,8 @@ Las E-commerce (Pymes) suelen operar con una visión parcial de su salud financi
 ## Arquitectura de Datos (Modern ELT)
 A diferencia del ETL tradicional, se **desarrolló** un flujo **ELT** (Extract, Load, Transform) aprovechando el poder de procesamiento de **Microsoft Fabric** y el almacenamiento unificado en **OneLake**.
 
-<img width="1904" height="899" alt="image" src="https://github.com/user-attachments/assets/22b43c7a-f93e-49fd-b31a-cd59e7f535be" />
-
 <img width="1917" height="746" alt="image" src="https://github.com/user-attachments/assets/a274f752-a44e-4f56-b562-bbe40d112c74" />
+<img width="1904" height="899" alt="image" src="https://github.com/user-attachments/assets/22b43c7a-f93e-49fd-b31a-cd59e7f535be" />
 
 ### Capas del Lakehouse:
 1.  **Capa Bronze (Raw data):** Se **realizó** la conexión SQL desde **Supabase** mediante **Notebooks**. Los datos se mantuvieron en su formato original.
