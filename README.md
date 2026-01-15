@@ -1,10 +1,10 @@
 # E-commerce Data Engineering: Microsoft Fabric Architecture
 
 > **Nota de Confidencialidad:**  
-> Este proyecto fue desarrollado para cliente de e-commerce bajo acuerdo 
+> Este proyecto fue desarrollado con datos realesde una e-commerce bajo acuerdo 
 > de confidencialidad. Los datos, nombres y métricas específicas han sido 
 > anonimizados. La arquitectura técnica y metodología mostradas reflejan 
-> la implementación real.
+> la implementación.
 
 [![View Dashboard](https://img.shields.io/badge/View-Live_Dashboard-blue)](https://app.powerbi.com/view?r=eyJrIjoiMzJiODdjNTAtYmZiNS00NTM0LWEwZTQtODg1ZGU3NzYwMWI1IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 [![Fabric](https://img.shields.io/badge/Microsoft-Fabric-purple)]()
@@ -79,7 +79,7 @@ A diferencia del ETL tradicional, se desarrolló un flujo **ELT** (Extract, Load
 
 **1. Capa Bronze (Raw data)**
 - Conexión SQL desde **Supabase** mediante **Notebooks**
-- Datos se mantienen en formato original sin transformaciones
+- Managed Tables: Implementación de tablas administradas para una gestión automática del catálogo sin rutas ABFS hardcodeadas
 - Ingesta automatizada vía Data Factory
 
 **2. Capa Silver (Cleaned & Validated)**
@@ -90,8 +90,8 @@ A diferencia del ETL tradicional, se desarrolló un flujo **ELT** (Extract, Load
 
 **3. Capa Gold (Business Layer)**
 - **Modelo en Estrella (Star Schema)** creado con Notebooks **Spark SQL** (`%%sql`)
-- Tablas de hechos y dimensiones optimizadas
-- Servido mediante **Direct Lake**: Power BI consume archivos Parquet en OneLake sin importar datos
+- Carga Incremental (MERGE): Sincronización profesional que solo inserta registros nuevos o actualiza cambios, optimizando costos de cómputo
+- Modelo en Estrella (Star Schema) creado con Notebooks Spark SQL
 - Garantiza latencia mínima y sincronización automática
 
 ---
